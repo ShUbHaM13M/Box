@@ -1,0 +1,25 @@
+{
+  "manifest_version": 3,
+  "name": "Box",
+  "description": "Box is a place to store things from the web.",
+  "version": "1.0",
+  "background": {
+    "service_worker": "scripts/background.js",
+    "type": "module"
+  },
+  "permissions": ["contextMenus", "nativeMessaging", "storage"],
+  "action": {
+    "default_popup": "popup/index.html",
+    "default_icon": {
+      "16": "popup/images/icon_16.png",
+      "24": "popup/images/icon_24.png",
+      "32": "popup/images/icon_32.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["popup/script.js"]
+    }
+  ]
+}
